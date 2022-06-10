@@ -14,14 +14,17 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #7b008c;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #ffffff;
+  background-image: url('./images/news_background.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .App-link {
@@ -35,4 +38,113 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.h1{
+    color:darkslategray;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.h2{
+  color:teal;
+  font-size: 60px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+h.error{
+  color: red;
+  font-size: 50px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  /* background-color: DodgerBlue; */
+}
+
+
+
+.flex-container-button{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  /* background-color: DodgerBlue; */
+}
+
+.flex-container-img{
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  /* background-color: DodgerBlue; */
+}
+
+
+
+
+.flex-container > div {
+  background-color:#8c0000;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+  border-radius: 15px;
+}
+
+.flex-container2 > div.a {
+  background-color: #00532c00;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+  border-radius: 15px;
+  color:cadetblue;
+  justify-content: left;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+/* CSS */
+.button-52 {
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px;
+  outline: 10;
+  border: 5px solid rgb(165, 164, 164);
+  color: blanchedalmond;
+  background-color: rgb(140, 0, 0);
+  border-radius: 5px;
+}
+
+.button-52:hover {
+  background-color:#002ead;
+  transition: 0.7s;
+}
+
+.button-1 {
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 10px 10px;
+  outline: 10;
+  border: 5px solid rgb(171, 131, 0);
+  color: rgb(205, 233, 255);
+  background-color: rgb(140, 0, 0);
+  border-radius: 5px;
+}
+
+.button-1:hover {
+  background-color:#002ead;
+  transition: 0.7s;
+}
+
+.h3{
+  font-size: 50px;
+  justify-content: left;
+}
+#video{
+  position: fixed;
+  z-index: -1;
+  width: 100%;
 }
