@@ -193,7 +193,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Bounce left>
-        <h className="h2"> East Asia Online News Article Previewer </h>
+        <h className="h2"> Online East Asian News Aggregator</h>
         </Bounce>
         <Zoom>
         <img src={news}></img>
@@ -201,7 +201,7 @@ function App() {
         <br/>
         <Bounce right>
         <h className="h1">
-        Please Click the Buttons Below to Fetch articles or Learn More About this project. <br/>
+        Please Click the Buttons Below to preview articles or Learn More About this project. <br/>
         Each Button specializes in different topics. Also you can click the article to be redirected. <br/>
         Note: News Paper companies frequently move or delete articles, please keep that in mind.<br/>
         Created by Winsor Tse <br/>
@@ -241,7 +241,13 @@ function App() {
               This Website uses a News Paper Website Scrapper built using Node.js. <br/>
               Backend: My API looks at the world sections of newspaper companies and scrapes for keywords. <br/>
               Frontend: Uses API info to display card previews of the articles <br/>
-              The News Sources used in the API include: <br/>
+              <br/>
+              What do Aggregators do? Aggregators fetches particular information or content all over the internet <br/>
+              and aggregates that content at the one place. In simple words it saves your time of <br/>
+              searching some information on different websites because it shows all the information <br/>
+              you need from different source at one place. <br/> <br/>
+
+              The News Sources used in the website include: <br/>
               The Guardian, NY Times, SCMP, CNN, Telegraph, <br/> NBC, Washington Post, ABC, BBC, and Straitistimes. <br/>
               If you want to check out my github and rapid api deployment, Check Below! <br/>
               <br/> <a href='https://rapidapi.com/winsor-tse/api/east-china-news'> <button className='button-1'>Rapid API</button> </a>
