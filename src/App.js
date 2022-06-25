@@ -7,13 +7,13 @@ import china from './images/icons8-china-58.png'
 import conflict from './images/icons8-conflict-64.png'
 import covid from './images/icons8-covid-64.png'
 import japan from './images/icons8-japan-64.png'
+import US from './images/icons8-united-states-64.png'
 import korea from './images/icons8-korea-64.png'
 import n_korea from './images/icons8-north-korea-48.png'
 import dice from './images/dice.png'
 import about from './images/about.png'
 import news from './images/news.png'
 import Zoom from 'react-reveal/Zoom';
-import Flip from 'react-reveal/Flip';
 import Bounce from 'react-reveal/Bounce';
 import Fade from 'react-reveal/Fade';
 //https://www.youtube.com/watch?v=4fCr1IepJRw
@@ -72,6 +72,15 @@ const options6 = {
     'X-RapidAPI-Host': 'east-china-news.p.rapidapi.com',
     'X-RapidAPI-Key': '80ce0759c9mshe3ab43f2d0c7a14p1e9db2jsn89f2b419cb42'
   }
+};
+
+const options7 = {
+	method: 'GET',
+  "url": "https://east-china-news.p.rapidapi.com/china_us",
+	headers: {
+		'X-RapidAPI-Key': '80ce0759c9mshe3ab43f2d0c7a14p1e9db2jsn89f2b419cb42',
+		'X-RapidAPI-Host': 'east-china-news.p.rapidapi.com'
+	}
 };
 
 
@@ -174,6 +183,7 @@ function App() {
             });
           }
           const getData6 = () => {
+            //gets the random new article from all news sources
             axios.request(options6)
               .then(function (response) {
               for (var i = 0; i < response.data.length; i++) {
@@ -189,6 +199,74 @@ function App() {
               console.error(error);
               });
             }
+            const getData7 = () => {
+              //gets the random new article from china
+              axios.request(options5)
+                .then(function (response) {
+                for (var i = 0; i < response.data.length; i++) {
+                  if(url_list.includes(response.data[i].url)==false)
+                    url_list.push(response.data[i].url);
+                }
+                set_click_data("")
+                set_random_click_data("Clicked")
+                set_url_Data(url_list)
+                set_text(false)
+                })
+                .catch(function (error) {
+                console.error(error);
+                });
+              }
+              const getData8 = () => {
+                //gets the random new article from japan
+                axios.request(options4)
+                  .then(function (response) {
+                  for (var i = 0; i < response.data.length; i++) {
+                    if(url_list.includes(response.data[i].url)==false)
+                      url_list.push(response.data[i].url);
+                  }
+                  set_click_data("")
+                  set_random_click_data("Clicked")
+                  set_url_Data(url_list)
+                  set_text(false)
+                  })
+                  .catch(function (error) {
+                  console.error(error);
+                  });
+                }
+                const getData9 = () => {
+                  //gets the random new article from korea
+                  axios.request(options3)
+                    .then(function (response) {
+                    for (var i = 0; i < response.data.length; i++) {
+                      if(url_list.includes(response.data[i].url)==false)
+                        url_list.push(response.data[i].url);
+                    }
+                    set_click_data("")
+                    set_random_click_data("Clicked")
+                    set_url_Data(url_list)
+                    set_text(false)
+                    })
+                    .catch(function (error) {
+                    console.error(error);
+                    });
+                  }
+                  const getData10 = () => {
+                    //gets the random new article from US_China_relations
+                    axios.request(options7)
+                      .then(function (response) {
+                      for (var i = 0; i < response.data.length; i++) {
+                        if(url_list.includes(response.data[i].url)==false)
+                          url_list.push(response.data[i].url);
+                      }
+                      set_click_data("")
+                      set_random_click_data("Clicked")
+                      set_url_Data(url_list)
+                      set_text(false)
+                      })
+                      .catch(function (error) {
+                      console.error(error);
+                      });
+                    }
   return (
     <div className="App">
       <header className="App-header">
@@ -203,23 +281,29 @@ function App() {
         <h className="h1">
         Please Click the Buttons Below to preview articles or Learn More About this project. <br/>
         Each Button specializes in different topics. Also you can click the article to be redirected. <br/>
-        Note: News Paper companies frequently move or delete articles, please keep that in mind.<br/>
+        The Backend takes some time to load so please wait ~3 seconds for the news to load. <br/>
         Created by Winsor Tse <br/>
         </h>
         </Bounce>
       <br/>
       <Fade top>
       <div class="flex-container-button"> 
-        <button class="button-52" role="button" onClick={getData}> <img src={conflict} style={imageStyles}/>Conflict/War News<img src={conflict} style={imageStyles} /></button>
-        <button class="button-52" role="button" onClick={getData2}> <img src={covid} style={imageStyles}/>Covid News <img src={covid} style={imageStyles}/></button>
+        <button class="button-52" role="button" onClick={getData}> <img src={conflict} style={imageStyles}/>News about War or Conflict<img src={conflict} style={imageStyles} /></button>
+        <button class="button-52" role="button" onClick={getData10}> <img src={china} style={imageStyles}/>US China Relation News<img src={US} style={imageStyles} /></button>
         <button class="button-52" role="button" onClick={text_Data}> <img src={about} style={imageStyles}/> About This Project <img src={about} style={imageStyles}/></button>
       </div>
       <br/>
       <div class="flex-container-button"> 
-      <button class="button-52" role="button" onClick={getData4}> <img src={japan} style={imageStyles}/> Japanese News <img src={japan} style={imageStyles}/></button>
+        <button class="button-52" role="button" onClick={getData6}> <img src={dice} style={imageStyles}/> Random News About China/Korea/Japan <img src={dice} style={imageStyles}/> </button>
+        <button class="button-52" role="button" onClick={getData7}> <img src={dice} style={imageStyles}/> Random News About China <img src={dice} style={imageStyles}/> </button>
+        <button class="button-52" role="button" onClick={getData8}> <img src={dice} style={imageStyles}/> Random News About Japan <img src={dice} style={imageStyles}/> </button>
+        <button class="button-52" role="button" onClick={getData9}> <img src={dice} style={imageStyles}/> Random News About Korea <img src={dice} style={imageStyles}/> </button>
+      </div>
+      <br/>
+      <div class="flex-container-button"> 
+        <button class="button-52" role="button" onClick={getData4}> <img src={japan} style={imageStyles}/> Japanese News <img src={japan} style={imageStyles}/></button>
         <button class="button-52" role="button" onClick={getData5}> <img src={china} style={imageStyles}/> Chinese News <img src={china} style={imageStyles}/> </button>
         <button class="button-52" role="button" onClick={getData3}> <img src={korea} style={imageStyles}/>Korean News <img src={n_korea} style={imageStyles}/></button>
-        <button class="button-52" role="button" onClick={getData6}> <img src={dice} style={imageStyles}/> Random News About China/Korea/Japan <img src={dice} style={imageStyles}/> </button>
       </div>
       </Fade>
         <div class="flex-container"> 
@@ -248,7 +332,7 @@ function App() {
               you need from different source at one place. <br/> <br/>
 
               The News Sources used in the website include: <br/>
-              The Guardian, NY Times, SCMP, CNN, Telegraph, <br/> NBC, Washington Post, ABC, BBC, and Straitistimes. <br/>
+              The Guardian, NY Times, CNN, Telegraph, <br/> NBC, Washington Post, ABC, BBC, and Straitistimes. <br/>
               If you want to check out my github and rapid api deployment, Check Below! <br/>
               <br/> <a href='https://rapidapi.com/winsor-tse/api/east-china-news'> <button className='button-1'>Rapid API</button> </a>
               <a href='https://github.com/winsor-tse/news-api'> <button className='button-1'>Git-Hub</button> </a> <br/> 
